@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+nav{
+    background-color: rgb(5, 5, 133);
+    color: aliceblue;
+    height: 10vh;
+    padding-left: 2.5vw ;
+    font-family: 'Quicksand', sans-serif;
+}
+nav ul{
+    padding-top: 2.5vh;
+    justify-content: center;
+    font-size: 7mm;
+}
+#logo{
+    text-align: center;
+    background-color: rgb(200,200,230);
+    margin: 10vh 15vw;
+    border: .1em solid  rgb(70, 70, 240);
+    border-radius: 1rem;
+    height: 25vh;
+}
+#logo img{
+    margin-top: 5px;
+    border-radius: .5rem;
+}
+#logo p{
+    padding-top: 2.5vh;
+    font-size: larger;
+    color: rgb(9, 10, 86);
+    font-family: 'Cairo', sans-serif;
+}
+#submit{
+    text-align: center;
+}
+#submit input{
+    height: 5vh;
+    width: 30vw;
+    border-radius: .4em;
+    border-color: cadetblue;
+    border-style:solid;
+    padding: 3px;
+}
+#submit button{
+    height: 5vh;
+    width: 18vw;
+    margin-top: 8px;
+    border-radius: .4rem;
+    border-style:solid;
+    border-color: cadetblue;
+    font-family: 'Roboto Slab', serif;
+}
+#submit button:hover{
+    background-color: rgba(200, 200, 200, 1);
+}
+#noUser{
+    text-align: center;
+}
+#userInfo{
+    margin: 2vh 20vw;
+    background-color: rgb(200,200,230) ;
+    border: .1em solid  rgb(70, 70, 240);
+    border-radius: .4rem;
+    text-align: center;
+    display:none;
+}
+#userInfo h2{
+    text-decoration: underline;
+    color: rgb(9, 10, 86);
+}
