@@ -1,0 +1,19 @@
+@media screen and (max-width: 600px){
+    #log{
+        height: 6vh;
+    }
+    #logo p{
+        font-size: small;
+    }
+    #submit p{
+        font-size: smaller;
+    }
+}
+@media screen and (max-height: 700px){
+    #log{
+        height: 6vh;
+    }
+    #logo p{
+        font-size: 90%;
+    }
+}
