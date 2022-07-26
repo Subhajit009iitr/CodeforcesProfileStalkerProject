@@ -1,4 +1,4 @@
-var data;
+var data,cdata;
 function getData(){
     var handle= document.getElementById("account").value
     var urlh='https://codeforces.com/api/user.info?handles='+handle
@@ -14,6 +14,7 @@ function getData(){
             document.getElementById('noUser').style.display = "none"
             console.log(data)
             userInfo(data)
+            userContestRating(handle)
         }
     })
 }
@@ -39,4 +40,20 @@ async function userInfo(data){
     "<br> <b>Last Online : </b>"+lastOnline;
     document.getElementById('userInfo').style.display='block';
     document.getElementById('userInfo').innerHTML=display;
+}
+async function userContestRating(handle){
+    await lag(2000);
+    var urlc='https://codeforces.com/api/user.rating?handle='+handle;
+    fetch(urlc).then(response => response.json()).then(cdata => {
+        console.log(cdata)
+        var conNameDisplay='';
+        for(i in cdata.result){
+            conNameDisplay+="<tr><td>"+(cdata.result[i].contestName)+"</td><td>"+(cdata.result[i].newRating)+"</td><td>"+
+            (cdata.result[i].rank)+"</td></tr>";
+        }
+        var conDisplay="<center><h2>All Contests</h2><table><tr><th><u>Contests</u></th><th><u>Ratings</u></th><th><u>Rank</u></th></tr>"+
+        conNameDisplay+"</table></center>";
+        document.getElementById('userContest').style.display='block';
+        document.getElementById('userContest').innerHTML= conDisplay;
+    })
 }

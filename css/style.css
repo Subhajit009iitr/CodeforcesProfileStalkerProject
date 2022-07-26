@@ -33,9 +33,10 @@ nav ul{
 }
 #logo p{
     padding-top: 2.5vh;
-    font-size: larger;
+    font-size: 20px;
     color: rgb(9, 10, 86);
     font-family: 'Cairo', sans-serif;
+    
 }
 #submit{
     text-align: center;
@@ -70,8 +71,25 @@ nav ul{
     border-radius: .4rem;
     text-align: center;
     display:none;
+    font-family: 'Roboto Slab', serif;
 }
 #userInfo h2{
+    text-decoration: underline;
+    color: rgb(9, 10, 86);
+}
+#userContest{
+    margin: 2vh 20vw;
+    background-color: rgb(200,200,230) ;
+    border: .1em solid  rgb(70, 70, 240);
+    border-radius: .4rem;
+    text-align: center;
+    display:none;
+    font-family: 'Roboto Slab', serif;
+}
+#userContest table{
+    width: 45%;
+}
+#userContest h2{
     text-decoration: underline;
     color: rgb(9, 10, 86);
 }
