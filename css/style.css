@@ -93,3 +93,29 @@ nav ul{
     text-decoration: underline;
     color: rgb(9, 10, 86);
 }
+#chart{
+    margin: 2vh 20vw;
+    background-color: rgb(200,200,230) ;
+    border: .1em solid  rgb(70, 70, 240);
+    border-radius: .4rem;
+    text-align: center;
+    display:none;
+    font-family: 'Roboto Slab', serif;
+}
+#chart h2{
+    text-decoration: underline;
+    color: rgb(9, 10, 86);
+}
+#newchart{
+    margin: 2vh 20vw;
+    background-color: rgb(200,200,230) ;
+    border: .1em solid  rgb(70, 70, 240);
+    border-radius: .4rem;
+    text-align: center;
+    display:none;
+    font-family: 'Roboto Slab', serif;
+}
+#newchart h2{
+    text-decoration: underline;
+    color: rgb(9, 10, 86);
+}

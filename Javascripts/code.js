@@ -47,13 +47,83 @@ async function userContestRating(handle){
     fetch(urlc).then(response => response.json()).then(cdata => {
         console.log(cdata)
         var conNameDisplay='';
-        for(i in cdata.result){
-            conNameDisplay+="<tr><td>"+(cdata.result[i].contestName)+"</td><td>"+(cdata.result[i].newRating)+"</td><td>"+
-            (cdata.result[i].rank)+"</td></tr>";
+        var size =cdata.result.length;
+        if(size == 0){
+            document.getElementById('userContest').style.display='block';
+            document.getElementById('userContest').innerHTML= 'No Contests Given yet!!!'
         }
-        var conDisplay="<center><h2>All Contests</h2><table><tr><th><u>Contests</u></th><th><u>Ratings</u></th><th><u>Rank</u></th></tr>"+
-        conNameDisplay+"</table></center>";
-        document.getElementById('userContest').style.display='block';
-        document.getElementById('userContest').innerHTML= conDisplay;
+        else{
+            if(size > 4){
+                for(i = size-1 ; i>=size-5 ; i--){
+                conNameDisplay+="<tr><td>"+(cdata.result[i].contestName)+"</td><td>"+(cdata.result[i].newRating)+"</td><td>"+
+                (cdata.result[i].rank)+"</td></tr>";
+                }
+            }
+            else
+            {
+                for(i = size-1 ; i>=0 ; i--){
+                    conNameDisplay+="<tr><td>"+(cdata.result[i].contestName)+"</td><td>"+(cdata.result[i].newRating)+"</td><td>"+
+                    (cdata.result[i].rank)+"</td></tr>";
+                    }
+            }
+            var conDisplay="<center><h2>Recent Contests</h2><table><tr><th><u>Contests</u></th><th><u>Ratings</u></th><th><u>Rank</u></th></tr>"+
+            conNameDisplay+"</table></center>";
+            document.getElementById('userContest').style.display='block';
+            document.getElementById('userContest').innerHTML= conDisplay;
+            chart(cdata,size);
+            rankChart(cdata,size);
+        }
+    })
+}
+async function chart(cdata,size){
+    document.getElementById('chart').style.display='block'
+    document.getElementById('headChart').innerHTML='<h2>Rating Chart</h2>'
+    const xValues  = new Array();
+    const yValues  = new Array();
+    for(i=0 ; i<size ; i++){
+       xValues[i] = cdata.result[i].contestName;
+       yValues[i] = cdata.result[i].newRating;
+    }
+    new Chart("myChart",{
+        type: "line",
+        data:{
+            labels:xValues,
+            datasets:[{
+                pointRadius:3, 
+                pointBackgroundColor: "rgb(0,0,255)",
+                data:yValues,
+            }]
+        },
+        options: {
+            legend:{
+                display:false
+            }
+        }
+    })
+}
+async function rankChart(cdata,size){
+    document.getElementById('newchart').style.display='block'
+    document.getElementById('headChartRank').innerHTML='<h2>Rank Chart</h2>'
+    const xValues  = new Array();
+    const yValues  = new Array();
+    for(i=0 ; i<size ; i++){
+       xValues[i] = cdata.result[i].contestName;
+       yValues[i] = cdata.result[i].rank;
+    }
+    new Chart("RankChart",{
+        type: "line",
+        data:{
+            labels:xValues,
+            datasets:[{
+                pointRadius:3, 
+                pointBackgroundColor: "rgb(0,0,255)",        
+                data:yValues,
+            }]
+        },
+        options: {
+            legend:{
+                display:false
+            }
+        }
     })
 }
